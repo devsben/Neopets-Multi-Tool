@@ -114,6 +114,125 @@ class avatars:
         else:
             print("You already own the Neomail Addict avatar!")
 
+    def clickable_avatars(self):
+        if not self.does_avatar_exist("Pirate! - Krawk"):
+            response = self.wrapper.get_data("pirates/academy.phtml?room=2", referer="http://www.jellyneo.net/?go=avatars&id=easy")
+            if self.utilities.contains(response.text, "You are now eligible to use"):
+                print("Received Pirate! - Krawk avatar!")
+        
+        if not self.does_avatar_exist("Pirate! - Shoyru"):
+            response = self.wrapper.get_data("pirates/academy.phtml?room=15", referer="http://www.jellyneo.net/?go=avatars&id=easy")
+            if self.utilities.contains(response.text, "You are now eligible to use"):
+                print("Received Pirate! - Shoyru avatar!")
+
+        if not self.does_avatar_exist("Pirate! - Aisha"):
+            response = self.wrapper.get_data("pirates/academy.phtml?room=45", referer="http://www.jellyneo.net/?go=avatars&id=easy")
+            if self.utilities.contains(response.text, "You are now eligible to use"):
+                print("Received Pirate! - Aisha avatar!")
+
+        if not self.does_avatar_exist("Pirate! - Scorchio"):
+            response = self.wrapper.get_data("pirates/academy.phtml?room=2149", referer="http://www.jellyneo.net/?go=avatars&id=easy")
+            if self.utilities.contains(response.text, "You are now eligible to use"):
+                print("Received Pirate! - Scorchio avatar!")
+
+        if not self.does_avatar_exist("Angelpuss - Angel"):
+            response = self.wrapper.get_data("search.phtml?selected_type=object&string=Angelpuss", referer="http://www.jellyneo.net/?go=avatars&id=easy")
+            if self.utilities.contains(response.text, "You are now eligible to use"):
+                print("Received Angelpuss - Angel avatar!")
+
+        if not self.does_avatar_exist("Grey Faerie"):
+            response = self.wrapper.get_data("neopedia.phtml?neopedia_id=179", referer="http://www.jellyneo.net/?go=avatars&id=easy")
+            if self.utilities.contains(response.text, "You are now eligible to use"):
+                print("Received Grey Faerie avatar!")
+
+        if not self.does_avatar_exist("Techo Master"):
+            response = self.wrapper.get_data("island/training.phtml?type=wisdom", referer="http://www.jellyneo.net/?go=avatars&id=easy")
+            if self.utilities.contains(response.text, "You are now eligible to use"):
+                print("Received Techo Master avatar!")
+
+        if not self.does_avatar_exist("Dr. Death"):
+            response = self.wrapper.get_data("pound/abandon.phtml", referer="http://www.jellyneo.net/?go=avatars&id=easy")
+            if self.utilities.contains(response.text, "You are now eligible to use"):
+                print("Received Dr. Death avatar!")
+
+        if not self.does_avatar_exist("Grundo Warehouse"):
+            response = self.wrapper.post_data("space/warehouse/prizecodes1.phtml", data={"prizecode": "A384J-228P1"}, referer="http://www.neopets.com/space/warehouse/prizecodes.phtml")
+            if self.utilities.contains(response.text, "You are now eligible to use"):
+                print("Received Grundo Warehouse avatar!")
+
+        if not self.does_avatar_exist("Kass Minion"):
+            response = self.wrapper.get_data("evil/showcreature.phtml?villain=16", referer="http://www.jellyneo.net/?go=avatars&id=easy")
+            if self.utilities.contains(response.text, "You are now eligible to use"):
+                print("Received Kass Minion avatar!")
+
+        if not self.does_avatar_exist("Jeran - Hero"):
+            response = self.wrapper.get_data("medieval/plot_bfm.phtml?current_day=7", referer="http://www.jellyneo.net/?go=avatars&id=easy")
+            if self.utilities.contains(response.text, "You are now eligible to use"):
+                print("Received Jeran - Hero avatar!")
+
+        if not self.does_avatar_exist("Bleh!!"):
+            response = self.wrapper.get_data("bleh.phtml", referer="http://www.jellyneo.net/?go=avatars&id=easy")
+            if self.utilities.contains(response.text, "You are now eligible to use"):
+                print("Received Bleh!! avatar!")
+
+        if not self.does_avatar_exist("Baby Buzz"):
+            response = self.wrapper.get_data("search.phtml?s=i+love+baby+buzz!", referer="http://www.jellyneo.net/?go=avatars&id=easy")
+            if self.utilities.contains(response.text, "You are now eligible to use"):
+                print("Received Baby Buzz avatar!")
+
+        if not self.does_avatar_exist("Good or Bad?"):
+            response = self.wrapper.get_data("water/plot_com.phtml?chapter=5", referer="http://www.jellyneo.net/?go=avatars&id=easy")
+            if self.utilities.contains(response.text, "You are now eligible to use"):
+                print("Received Good or Bad? avatar!")
+
+        if not self.does_avatar_exist("Captain Scarblade"):
+            response = self.wrapper.get_data("art/misc/scarblade2.phtml", referer="http://www.jellyneo.net/?go=avatars&id=easy")
+            if self.utilities.contains(response.text, "You are now eligible to use"):
+                print("Received Captain Scarblade avatar!")
+
+        if not self.does_avatar_exist("Gloomy"):
+            print("Attempting to get Gloomy avatar, this may take a while..")
+            worlds = [14, 11, 12, 4, 9, 16, 3, 17, 2, 18, 10, 5, 13, 6, 7, 15, 8, 1, 19]
+            response = self.wrapper.get_data("weather.phtml", referer="http://www.jellyneo.net/?go=avatars&id=easy")
+            if not self.utilities.contains(response.text, "You are now eligible to use"):
+                for world in worlds:
+                    response = self.wrapper.get_data(f"weather.phtml?world={world}", referer=response.url)
+                    if self.utilities.contains(response.text, "You are now eligible to use"):
+                        print("Received Gloomy avatar!")
+                        break
+            else:
+                print("Received Gloomy avatar!")
+
+        if not self.does_avatar_exist("Quiggle - Cheesy Grin"):
+            response = self.wrapper.get_data("browseshop.phtml?owner=Cosmic145236987", referer="http://www.jellyneo.net/?go=avatars&id=easy")
+            if self.utilities.contains(response.text, "You are now eligible to use"):
+                print("Received Quiggle - Cheesy Grin avatar!")
+
+        if not self.does_avatar_exist("Ixi - Sophie the Swamp Witch"):
+            response = self.wrapper.get_data("halloween/costumes.phtml", referer="http://www.jellyneo.net/?go=avatars&id=easy")
+            if self.utilities.contains(response.text, "You are now eligible to use"):
+                print("Received Ixi - Sophie the Swamp Witch avatar!")
+
+        if not self.does_avatar_exist("Grarrl - Galem Darkhand"):
+            response = self.wrapper.get_data("search.phtml?selected_type=object&string=Galem%2BDarkhand", referer="http://www.jellyneo.net/?go=avatars&id=easy")
+            if self.utilities.contains(response.text, "You are now eligible to use"):
+                print("Received Grarrl - Galem Darkhand avatar!")
+
+        if not self.does_avatar_exist("Lupe - King Altador"):
+            response = self.wrapper.get_data("altador/hallofheroes.phtml?view_statue_id=12", referer="http://www.jellyneo.net/?go=avatars&id=easy")
+            if self.utilities.contains(response.text, "You are now eligible to use"):
+                print("Received Lupe - King Altador avatar!")
+
+        if not self.does_avatar_exist("Yurble - Forefitor"):
+            response = self.wrapper.get_data("altador/hallofheroes.phtml?janitor=1", referer="http://www.jellyneo.net/?go=avatars&id=easy")
+            if self.utilities.contains(response.text, "You are now eligible to use"):
+                print("Received Yurble - Forefitor avatar!")
+
+        if not self.does_avatar_exist("Acara - Roberta of Brightvale"):
+            response = self.wrapper.get_data("objects.phtml?obj_type=78&type=shop", referer="http://www.jellyneo.net/?go=avatars&id=easy")
+            if self.utilities.contains(response.text, "You are now eligible to use"):
+                print("Received Acara - Roberta of Brightvale avatar!")
+
     def check_for_breaks(self, interation, limit, task):
         if limit > 100:
             if not interation % 100:
